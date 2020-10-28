@@ -1,17 +1,17 @@
-# Lifecycle Hooks
+# Hooks del Ciclo de Vida
 
-> This guide assumes that you have already read the [Composition API Introduction](composition-api-introduction.html) and [Reactivity Fundamentals](reactivity-fundamentals.html). Read that first if you are new to Composition API.
+> Esta guía asume que usted ya leyo la [Introducción de la API de Composición](composition-api-introduction.html) y [Fundamentos de la Reactividad](reactivity-fundamentals.html). Lea esto antes si usted es nuevo en lo que refiere a la API de Composición.
 
-<VideoLesson href="https://www.vuemastery.com/courses/vue-3-essentials/lifecycle-hooks" title="Learn about how Lifecycle Hooks work with Vue Mastery">Watch a free video about Lifecycle Hooks on Vue Mastery</VideoLesson>
+<VideoLesson href="https://www.vuemastery.com/courses/vue-3-essentials/lifecycle-hooks" title="Learn about how Lifecycle Hooks work with Vue Mastery">Vea un video gratuito sobre setup en Vue Mastery</VideoLesson>
 
-You can access a component's lifecycle hook by prefixing the lifecycle hook with "on".
+Usted puede acceder a los _hooks_ del ciclo de vida agregando el prefijo "on" al _hook_.
 
-The following table contains how the lifecycle hooks are invoked inside of [setup()](composition-api-setup.html):
+La siguiente table contiene como los _hooks_ del ciclo de vida son invocados desde [setup()](composition-api-setup.html):
 
-| Options API       | Hook inside `setup` |
+| API de Opciones   | _Hook_ dentro de`setup`    |
 | ----------------- | -------------------------- |
-| `beforeCreate`    | Not needed\*               |
-| `created`         | Not needed\*               |
+| `beforeCreate`    | No es necesario\*          |
+| `created`         | No es necesario\*          |
 | `beforeMount`     | `onBeforeMount`            |
 | `mounted`         | `onMounted`                |
 | `beforeUpdate`    | `onBeforeUpdate`           |
@@ -23,10 +23,10 @@ The following table contains how the lifecycle hooks are invoked inside of [setu
 | `renderTriggered` | `onRenderTriggered`        |
 
 :::tip
-Because `setup` is run around the `beforeCreate` and `created` lifecycle hooks, you do not need to explicitly define them. In other words, any code that would be written inside those hooks should be written directly in the `setup` function.
+Como `setup` es ejecutado alrededor de los _hooks_ del ciclo de vida `beforeCreate` y `created`, usted no necesita definirlos explícitamente. En otras palabras, cualquier código que fuera a ser escrito dentro de estos, puede ser escrito directamente en la función `setup`.
 :::
 
-These functions accept a callback that will be executed when the hook is called by the component:
+Esta función acepta un _callback_ que será ejecutado cuando el _hook_ sea invocado por el componente:
 
 ```js
 // MyBook.vue
@@ -35,7 +35,7 @@ export default {
   setup() {
     // mounted
     onMounted(() => {
-      console.log('Component is mounted!')
+      console.log('El componente fue montado!')
     })
   }
 }
