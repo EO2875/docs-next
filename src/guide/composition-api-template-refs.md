@@ -1,14 +1,14 @@
 ## Template Refs
 
-> This section uses [single-file component](single-file-component.html) syntax for code examples
+> Esta sección utiliza [componentes de un solo archivo](single-file-component.html) para ejemplos
 
-> This guide assumes that you have already read the [Composition API Introduction](composition-api-introduction.html) and [Reactivity Fundamentals](reactivity-fundamentals.html). Read that first if you are new to Composition API.
+> Esta guía asume que usted ya leyo la [Introducción de la API de Composición](composition-api-introduction.html) y [Fundamentos de la Reactividad](reactivity-fundamentals.html). Lea esto antes si usted es nuevo en lo que refiere a la API de Composición.
 
-When using the Composition API, the concept of [reactive refs](reactivity-fundamentals.html#creating-standalone-reactive-values-as-refs) and [template refs](component-template-refs.html) are unified. In order to obtain a reference to an in-template element or component instance, we can declare a ref as usual and return it from [setup()](composition-api-setup.html):
+Cuando se utiliza la API de Composición, los conceptos de [refs reactivas](reactivity-fundamentals.html#creating-standalone-reactive-values-as-refs) y [template refs](component-template-refs.html) son el mismo. Para obtener la referencia de un elemento que se encuentra dentro del _template_ o la instancia de un componente, podemos declarar una _ref_ como lo hacemos usualmente y retornarla desde [setup()](composition-api-setup.html).
 
 ```html
 <template>
-  <div ref="root">This is a root element</div>
+  <div ref="root">Este es un elemento raíz</div>
 </template>
 
 <script>
@@ -19,8 +19,8 @@ When using the Composition API, the concept of [reactive refs](reactivity-fundam
       const root = ref(null)
 
       onMounted(() => {
-        // the DOM element will be assigned to the ref after initial render
-        console.log(root.value) // <div>This is a root element</div>
+        // El elemento del DOM será asignado a la ref luego del renderizado inicial
+        console.log(root.value) // <div>Este es un elemento raíz</div>
       })
 
       return {
@@ -31,11 +31,11 @@ When using the Composition API, the concept of [reactive refs](reactivity-fundam
 </script>
 ```
 
-Here we are exposing `root` on the render context and binding it to the div as its ref via `ref="root"`. In the Virtual DOM patching algorithm, if a VNode's `ref` key corresponds to a ref on the render context, the VNode's corresponding element or component instance will be assigned to the value of that ref. This is performed during the Virtual DOM mount / patch process, so template refs will only get assigned values after the initial render.
+Aquí estamos exponiendo `root` en el _render context_ y vinculándolo a la ref del div utilizando `ref="root"`. En el algoritmo de _patch_ del DOM Virtual, si la `ref` de un VNode corresponde a una `ref` en el _render context_, el VNode correspondiente a dicho elemento o instancia de componente  será asignado al valor de dicha ref. Esto se realiza durante el proceso de montado o de _patch_ del DOM Virtual, por lo cual _template refs_ solo tendrán valores asignados luego del renderizado inicial.
 
-Refs used as templates refs behave just like any other refs: they are reactive and can be passed into (or returned from) composition functions.
+Refs utilizadas como _template refs_ se comportan igual que cualquier otras refs: son reactivas y puede ser pasadas a (y retornadas de) funciones de composición.
 
-### Usage with JSX
+### Uso con JSX
 
 ```js
 export default {
@@ -53,9 +53,9 @@ export default {
 }
 ```
 
-### Usage inside `v-for`
+### Uso dentro de`v-for`
 
-Composition API template refs do not have special handling when used inside `v-for`. Instead, use function refs to perform custom handling:
+Los _template refs_ de la API de Composición no necesitan un manejo especial cuando son utilizados dentro de `v-for`. En su lugar, use _function refs_ para realizar un manejo manual:
 
 ```html
 <template>
@@ -72,7 +72,7 @@ Composition API template refs do not have special handling when used inside `v-f
       const list = reactive([1, 2, 3])
       const divs = ref([])
 
-      // make sure to reset the refs before each update
+      // asegurese de resetear todas las refs antes de cada update
       onBeforeUpdate(() => {
         divs.value = []
       })
