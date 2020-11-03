@@ -1,8 +1,8 @@
 # Renderizado de Lista
 
-## Mapeando una matriz a Elementos con `v-for`
+## Mapeando un Arreglo a Elementos con `v-for`
 
-Podemos usar la directiva `v-for` para renderizar una lista de elementos basada en una matriz. La directiva `v-for` requiere una sintaxis especial en forma de `item in items`, donde los `items` son la matriz de datos de origen y el `item` es un **alias** para el elemento de matriz que se está iterando:
+Podemos usar la directiva `v-for` para renderizar una lista de elementos basada en un arreglo. La directiva `v-for` requiere una sintaxis especial en forma de `item in items`, donde los `items` son el arreglo de datos de origen y el `item` es un **alias** para el elemento de matriz que se está iterando:
 
 ```html
 <ul id="array-rendering">
@@ -160,7 +160,7 @@ No utilice valores no primitivos como objetos y vectores como clave para `v-for`
 
 Para ver el uso en detalle del atributo `key`, por favor vea la [documentación de la API para `key`](../api/special-attributes.html#key).
 
-## Detección del cambios en Array
+## Detección del cambios en Arreglos
 
 ### Métodos de Mutación
 
@@ -176,7 +176,7 @@ Vue envuelve los métodos de mutación de una matriz observada para que también
 
 Puede abrir la consola y probar con la matriz de `items` de los ejemplos anteriores llamando a sus métodos de mutación. Por ejemplo: `example1.items.push({ message: 'Baz' })`.
 
-### Mutando un Array
+### Mutando un Arreglo
 
 Los métodos de mutación, como sugiere su nombre, mutan la matriz original a la que se llama. En comparación, también hay métodos no mutantes, por ejemplo `filter()`, `concat()` y `slice()`, que no mutan la matriz original sino que **siempre devuelven una nueva matriz**. Cuando trabaje con métodos no mutantes, puede reemplazar la matriz anterior por la nueva:
 

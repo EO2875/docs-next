@@ -2,7 +2,7 @@
 
 ## `v-if`
 
-La directiva `v-if` es utilizada para renderizar condicionalmente un bloque de código. El bloque de código solo será renderizado si la expresión de la directiva retorna un valor de verdad.
+La directiva `v-if` es utilizada para renderizar condicionalmente un bloque de código. El bloque de código solo será renderizado si la expresión de la directiva retorna un valor verdadero.
 
 ```html
 <h1 v-if="awesome">¡Vue es asombroso!</h1>
@@ -65,7 +65,7 @@ Similar a `v-else`, un elemento `v-else-if` debe seguir inmediatamente a un elem
 
 ## `v-show`
 
-Otra opción para mostrar un elemento condicionalmente es la directiva `v-show`. La utilización es básicamente la misma:
+Otra opción para mostrar un elemento condicionalmente es la directiva `v-show`. El uso es básicamente el mismo:
 
 ```html
 <h1 v-show="ok">¡Hola!</h1>
@@ -77,9 +77,9 @@ La diferencia es que un elemento con `v-show` siempre se renderizará y permanec
 
 ## `v-if` vs `v-show`
 
-`v-if` es una renderización condicional “real” ya que garantiza que los eventos y componentes secundarios dentro del bloque condicional sean debidamente destruidos y recreados durante la alternancia.
+`v-if` es una renderización condicional “real” ya que garantiza que los eventos y componentes secundarios dentro del bloque condicional sean debidamente destruidos y creados nuevamente durante la alternancia.
 
-`v-if` también es **_lazy_**: si la condición es falsa en la representación inicial, no se hará nada. El bloque condicional no se procesará hasta que la condición se convierta en true por primera vez.
+`v-if` también es **_lazy_**: si la condición es falsa en la renderización inicial, no se hará nada. El bloque condicional no se procesará hasta que la condición se convierta en `true` por primera vez.
 
 En comparación, `v-show` es mucho más simple: el elemento siempre se representa independientemente de la condición inicial, con alternancia basada en CSS.
 
@@ -87,7 +87,7 @@ En general, `v-if` tiene costos de alternancia más altos, mientras que `v-show`
 
 ## `v-if` with `v-for`
 
-::: tip Note
+::: tip Nota
 Utilizar `v-if` y `v-for` juntos **no es recomendado**. Vea la [guía de estilo](../style-guide/#avoid-v-if-with-v-for-essential) para mayor información.
 :::
 
